@@ -53,7 +53,7 @@ for subdir,dirs,files in os.walk('Decklists\\'):
 
             res2 = requests.post(scryfall,json=ident1,headers=headers)
             dFirst = json_normalize(res2.json()['data'])
-            time.sleep(.1)
+            time.sleep(.5)
             if (len(arr2)>0):
                 res3 = requests.post(scryfall,json=ident2,headers=headers)
                 dSec = json_normalize(res3.json()['data'])
