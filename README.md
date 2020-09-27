@@ -19,6 +19,7 @@ CARD ANALYSIS:
         ***NOTE***
         The abilities file was generated manually.  Utilizing both ngrams of the oracle text as well as my own knowledge of the game, I created the abilities file using my own
         judgement.  This is not meant to be official nor complete.  Other strings can and should be added, and corresponding power rankings adjusted as you see fit.
+        **********
     Next, a dictionary (ability_index) is created to convert each word into an integer for machine learning models.
     The data is then split into train/test data 80/20.  
     The labels (ability_score) are normalized to values between 0 and 1 (value/max_value), then rounded to 0 or 1 with the rounding point at .5.  This number can be adjusted 
@@ -27,3 +28,5 @@ CARD ANALYSIS:
     this is 17537 x 5402.
     After vectorizing, the training data is split into training/validation data.
     Lastly, the data is sent through the model with the model achieving 99.53% accuracy and 0.65 loss.
+    A second method adapted from this article: https://machinelearningmastery.com/use-word-embedding-layers-deep-learning-keras/ is much more simplistic but provides a 
+    higher accuracy score.  This method utilizes keras's built in embedding which does not require creating a dictionary of word indices, the raw text can be run into the method.  
