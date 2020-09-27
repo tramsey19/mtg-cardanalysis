@@ -1,0 +1,53 @@
+until end of turn,1
+put a +1/+1 counter on,5
+from your graveyard,6
+the beginning of your upkeep,7
+creatures you control,7
+enters the battlefield with,6
+draw a card,7
+Destroy target,7
+{ T } : Add { C },1
+search your library,9
+flying,6
+enters the battlefield tapped,1
+cast this spell,7
+from your graveyard to the battlefield,9
+deals combat damage to a player,3
+blocked except by,6
+mana of any,6
+the top card of your,7
+at the beginning of the next,1
+put it into your hand,7
+Whenever a creature,9
+Enchanted creature gets,7
+the battlefield under your control,8
+deals 2 damage to,2
+vigilance,6
+deathtouch,6
+lifelink,6
+indestructible,8
+hexproof,7
+unblockable,8
+haste,7
+trample,6
+proliferate,8
+Add one mana of any,7
+Sacrifice,2
+power and toughness are each equal to,2
+as long as defending player controls a,5
+reach,5
+Cycling,6
+additional cost,1
+Prowess,5
+Counter target,9
+less to cast,8
+play cards exiled this way,8
+Whenever you cast,10
+Scry,8
+Flash,10
+you win the game,10
+Shroud,7
+prevent,7
+draw,10
+can't cause their controller to search,10
+mills,6
