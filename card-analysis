@@ -169,6 +169,8 @@ results = model.evaluate(x_test, y_test)
 print(model.metrics_names)
 print(results)
 
+*************  The below was adapted from and article found here: https://machinelearningmastery.com/use-word-embedding-layers-deep-learning-keras/  **********
+
 docs = df['oracle_text'].copy()
 
 # Convert all non-str values into empty strings
