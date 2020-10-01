@@ -10,6 +10,10 @@ DATA COLLECTION:
     in two requests (limit of 50 cards per request).  The response object is cleansed so we only save the columns listed in the "cols" variable.  
     This yields 300 csv files per commander, each containing a decklist and the corresponding card attributes.
 
+COMMANDER ANALYSIS:
+    This file utilizes the abilities file as well and the decklists gathered from Data Collection to create a power level both for commanders in general, as well as 
+    for specific decks.  The abilities file and the "typerank" dictionary created are highly subjective and should be modified to fit your personal preferences.
+
 CARD ANALYSIS:
     The "rulings.json" file was downloaded and renamed from the scryfall website under the "Oracle Cards" link, here: https://scryfall.com/docs/api/bulk-data. 
     
