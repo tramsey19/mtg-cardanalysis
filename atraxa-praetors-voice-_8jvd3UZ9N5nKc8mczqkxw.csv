@@ -1,0 +1,196 @@
+,name,mana_cost,cmc,type_line,oracle_text,colors,color_identity,keywords,rarity,edhrec_rank,prices.usd,prices.usd_foil,produced_mana,loyalty,power,toughness
+0,"Ajani, Caller of the Pride",{1}{W}{W},3.0,Legendary Planeswalker — Ajani,"+1: Put a +1/+1 counter on up to one target creature.
+−3: Target creature gains flying and double strike until end of turn.
+−8: Create X 2/2 white Cat creature tokens, where X is your life total.",['W'],['W'],[],mythic,3125.0,3.87,8.93,,4,,
+1,"Ajani, Mentor of Heroes",{3}{G}{W},5.0,Legendary Planeswalker — Ajani,"+1: Distribute three +1/+1 counters among one, two, or three target creatures you control.
++1: Look at the top four cards of your library. You may reveal an Aura, creature, or planeswalker card from among them and put it into your hand. Put the rest on the bottom of your library in any order.
+−8: You gain 100 life.","['G', 'W']","['G', 'W']",[],mythic,2401.0,11.57,17.40,,4,,
+2,Aqueous Form,{U},1.0,Enchantment — Aura,"Enchant creature
+Enchanted creature can't be blocked.
+Whenever enchanted creature attacks, scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)",['U'],['U'],"['Enchant', 'Scry']",common,940.0,0.39,2.35,,,,
+3,Argentum Armor,{6},6.0,Artifact — Equipment,"Equipped creature gets +6/+6.
+Whenever equipped creature attacks, destroy target permanent.
+Equip {6}",[],[],['Equip'],rare,1090.0,2.03,,,,,
+4,"Atraxa, Praetors' Voice",{G}{W}{U}{B},4.0,Legendary Creature — Angel Horror,"Flying, vigilance, deathtouch, lifelink
+At the beginning of your end step, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)","['B', 'G', 'U', 'W']","['B', 'G', 'U', 'W']","['Deathtouch', 'Flying', 'Lifelink', 'Vigilance', 'Proliferate']",mythic,1028.0,16.10,21.62,,,4,4
+5,Azorius Guildgate,,0.0,Land — Gate,"Azorius Guildgate enters the battlefield tapped.
+{T}: Add {W} or {U}.",[],"['U', 'W']",[],common,398.0,0.05,0.76,"['U', 'W']",,,
+6,Bant Panorama,,0.0,Land,"{T}: Add {C}.
+{1}, {T}, Sacrifice Bant Panorama: Search your library for a basic Forest, Plains, or Island card and put it onto the battlefield tapped. Then shuffle your library.",[],[],[],common,933.0,2.04,,['C'],,,
+7,Bastion Protector,{2}{W},3.0,Creature — Human Soldier,Commander creatures you control get +2/+2 and have indestructible.,['W'],['W'],[],rare,2202.0,8.33,,,,3,3
+8,Bear Umbra,{2}{G}{G},4.0,Enchantment — Aura,"Enchant creature
+Enchanted creature gets +2/+2 and has ""Whenever this creature attacks, untap all lands you control.""
+Totem armor (If enchanted creature would be destroyed, instead remove all damage from it and destroy this Aura.)",['G'],['G'],"['Totem armor', 'Enchant']",rare,749.0,8.26,,,,,
+9,Blackblade Reforged,{2},2.0,Legendary Artifact — Equipment,"Equipped creature gets +1/+1 for each land you control.
+Equip legendary creature {3}
+Equip {7}",[],[],['Equip'],rare,394.0,2.28,3.85,,,,
+10,Blossoming Sands,,0.0,Land,"Blossoming Sands enters the battlefield tapped.
+When Blossoming Sands enters the battlefield, you gain 1 life.
+{T}: Add {G} or {W}.",[],"['G', 'W']",[],common,418.0,0.08,0.19,"['G', 'W']",,,
+11,"Bruna, Light of Alabaster",{3}{W}{W}{U},6.0,Legendary Creature — Angel,"Flying, vigilance
+Whenever Bruna, Light of Alabaster attacks or blocks, you may attach to it any number of Auras on the battlefield and you may put onto the battlefield attached to it any number of Aura cards that could enchant it from your graveyard and/or hand.","['U', 'W']","['U', 'W']","['Flying', 'Vigilance']",mythic,2548.0,0.85,,,,5,5
+12,Cathedral of War,,0.0,Land,"Cathedral of War enters the battlefield tapped.
+Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)
+{T}: Add {C}.",[],[],['Exalted'],rare,2682.0,1.16,2.06,['C'],,,
+13,Champion's Helm,{3},3.0,Artifact — Equipment,"Equipped creature gets +2/+2.
+As long as equipped creature is legendary, it has hexproof. (It can't be the target of spells or abilities your opponents control.)
+Equip {1}",[],[],['Equip'],rare,2363.0,17.27,,,,,
+14,Chromatic Lantern,{3},3.0,Artifact,"Lands you control have ""{T}: Add one mana of any color.""
+{T}: Add one mana of any color.",[],[],[],rare,26.0,9.24,10.90,"['B', 'G', 'R', 'U', 'W']",,,
+15,Command Tower,,0.0,Land,{T}: Add one mana of any color in your commander's color identity.,[],[],[],common,2.0,,,"['B', 'G', 'R', 'U', 'W']",,,
+16,Conqueror's Flail,{2},2.0,Artifact — Equipment,"Equipped creature gets +1/+1 for each color among permanents you control.
+As long as Conqueror's Flail is attached to a creature, your opponents can't cast spells during your turn.
+Equip {2}",[],[],['Equip'],rare,2252.0,19.98,,,,,
+17,Counterspell,{U}{U},2.0,Instant,Counter target spell.,['U'],['U'],[],common,15.0,1.90,2.71,,,,
+18,Cultivate,{2}{G},3.0,Sorcery,"Search your library for up to two basic land cards, reveal those cards, and put one onto the battlefield tapped and the other into your hand. Then shuffle your library.",['G'],['G'],[],uncommon,14.0,0.33,0.58,,,,
+19,Darksteel Plate,{3},3.0,Artifact — Equipment,"Indestructible
+Equipped creature has indestructible.
+Equip {2}",[],[],"['Indestructible', 'Equip']",rare,379.0,12.30,,,,,
+20,Diabolic Tutor,{2}{B}{B},4.0,Sorcery,Search your library for a card and put that card into your hand. Then shuffle your library.,['B'],['B'],[],uncommon,84.0,2.65,,,,,
+21,Dimir Guildgate,,0.0,Land — Gate,"Dimir Guildgate enters the battlefield tapped.
+{T}: Add {U} or {B}.",[],"['B', 'U']",[],common,370.0,0.09,0.58,"['B', 'U']",,,
+22,Dismal Backwater,,0.0,Land,"Dismal Backwater enters the battlefield tapped.
+When Dismal Backwater enters the battlefield, you gain 1 life.
+{T}: Add {U} or {B}.",[],"['B', 'U']",[],common,297.0,0.06,0.15,"['B', 'U']",,,
+23,Dovin's Veto,{W}{U},2.0,Instant,"This spell can't be countered.
+Counter target noncreature spell.","['U', 'W']","['U', 'W']",[],uncommon,270.0,1.24,2.82,,,,
+24,Dueling Grounds,{1}{G}{W},3.0,Enchantment,"No more than one creature can attack each combat.
+No more than one creature can block each combat.","['G', 'W']","['G', 'W']",[],rare,4506.0,5.55,14.60,,,,
+25,Eldrazi Conscription,{8},8.0,Tribal Enchantment — Eldrazi Aura,"Enchant creature
+Enchanted creature gets +10/+10 and has trample and annihilator 2. (Whenever it attacks, defending player sacrifices two permanents.)",[],[],['Enchant'],rare,1328.0,8.38,15.03,,,,
+26,Esper Panorama,,0.0,Land,"{T}: Add {C}.
+{1}, {T}, Sacrifice Esper Panorama: Search your library for a basic Plains, Island, or Swamp card and put it onto the battlefield tapped. Then shuffle your library.",[],[],[],common,1063.0,1.41,,['C'],,,
+27,Eternal Witness,{1}{G}{G},3.0,Creature — Human Shaman,"When Eternal Witness enters the battlefield, you may return target card from your graveyard to your hand.",['G'],['G'],[],uncommon,30.0,5.24,8.18,,,2,1
+28,Evolving Wilds,,0.0,Land,"{T}, Sacrifice Evolving Wilds: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library.",[],[],[],common,8.0,,,,,,
+29,Fabricate,{2}{U},3.0,Sorcery,"Search your library for an artifact card, reveal it, and put it into your hand. Then shuffle your library.",['U'],['U'],[],uncommon,258.0,7.08,,,,,
+30,Faeburrow Elder,{1}{G}{W},3.0,Creature — Treefolk Druid,"Vigilance
+Faeburrow Elder gets +1/+1 for each color among permanents you control.
+{T}: For each color among permanents you control, add one mana of that color.","['G', 'W']","['G', 'W']",['Vigilance'],rare,694.0,2.50,2.96,"['B', 'G', 'R', 'U', 'W']",,0,0
+31,Forest,,0.0,Basic Land — Forest,({T}: Add {G}.),[],['G'],[],common,,,,['G'],,,
+32,Giltspire Avenger,{G}{W}{U},3.0,Creature — Human Soldier,"Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)
+{T}: Destroy target creature that dealt damage to you this turn.","['G', 'U', 'W']","['G', 'U', 'W']",['Exalted'],rare,6416.0,1.49,1.11,,,2,2
+33,Golgari Guildgate,,0.0,Land — Gate,"Golgari Guildgate enters the battlefield tapped.
+{T}: Add {B} or {G}.",[],"['B', 'G']",[],common,357.0,0.14,,"['B', 'G']",,,
+34,Golgari Signet,{2},2.0,Artifact,"{1}, {T}: Add {B}{G}.",[],"['B', 'G']",[],common,145.0,0.32,,"['B', 'G']",,,
+35,Graypelt Refuge,,0.0,Land,"Graypelt Refuge enters the battlefield tapped.
+When Graypelt Refuge enters the battlefield, you gain 1 life.
+{T}: Add {G} or {W}.",[],"['G', 'W']",[],uncommon,1008.0,0.20,,"['G', 'W']",,,
+36,Hall of Heliod's Generosity,,0.0,Legendary Land,"{T}: Add {C}.
+{1}{W}, {T}: Put target enchantment card from your graveyard on top of your library.",[],['W'],[],rare,492.0,5.01,19.75,['C'],,,
+37,Helm of the Host,{4},4.0,Legendary Artifact — Equipment,"At the beginning of combat on your turn, create a token that's a copy of equipped creature, except the token isn't legendary if equipped creature is legendary. That token gains haste.
+Equip {5}",[],[],['Equip'],rare,255.0,11.76,13.03,,,,
+38,Heroic Intervention,{1}{G},2.0,Instant,Permanents you control gain hexproof and indestructible until end of turn.,['G'],['G'],[],rare,112.0,5.39,6.32,,,,
+39,Hydra Omnivore,{4}{G}{G},6.0,Creature — Hydra,"Whenever Hydra Omnivore deals combat damage to an opponent, it deals that much damage to each other opponent.",['G'],['G'],[],mythic,1585.0,3.28,,,,8,8
+40,Idyllic Tutor,{2}{W},3.0,Sorcery,"Search your library for an enchantment card, reveal it, put it into your hand, then shuffle your library.",['W'],['W'],[],rare,454.0,3.69,4.48,,,,
+41,Island,,0.0,Basic Land — Island,({T}: Add {U}.),[],['U'],[],common,,,,['U'],,,
+42,Jungle Hollow,,0.0,Land,"Jungle Hollow enters the battlefield tapped.
+When Jungle Hollow enters the battlefield, you gain 1 life.
+{T}: Add {B} or {G}.",[],"['B', 'G']",[],common,309.0,0.05,0.16,"['B', 'G']",,,
+43,Jwar Isle Refuge,,0.0,Land,"Jwar Isle Refuge enters the battlefield tapped.
+When Jwar Isle Refuge enters the battlefield, you gain 1 life.
+{T}: Add {U} or {B}.",[],"['B', 'U']",[],uncommon,683.0,0.44,,"['B', 'U']",,,
+44,Kodama's Reach,{2}{G},3.0,Sorcery — Arcane,"Search your library for up to two basic land cards, reveal those cards, and put one onto the battlefield tapped and the other into your hand. Then shuffle your library.",['G'],['G'],[],common,21.0,2.03,,,,,
+45,Lightning Greaves,{2},2.0,Artifact — Equipment,"Equipped creature has haste and shroud. (It can't be the target of spells or abilities.)
+Equip {0}",[],[],['Equip'],uncommon,10.0,2.93,3.54,,,,
+46,Merciless Eviction,{4}{W}{B},6.0,Sorcery,"Choose one —
+• Exile all artifacts.
+• Exile all creatures.
+• Exile all enchantments.
+• Exile all planeswalkers.","['B', 'W']","['B', 'W']",[],rare,143.0,1.44,3.09,,,,
+47,Mirror Shield,{2},2.0,Artifact — Equipment,"Equipped creature gets +0/+2 and has hexproof and ""Whenever a creature with deathtouch blocks or becomes blocked by this creature, destroy that creature.""
+Equip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",[],[],['Equip'],uncommon,4703.0,0.20,0.30,,,,
+48,Negate,{1}{U},2.0,Instant,Counter target noncreature spell.,['U'],['U'],[],common,56.0,,,,,,
+49,Noble Hierarch,{G},1.0,Creature — Human Druid,"Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)
+{T}: Add {G}, {W}, or {U}.",['G'],"['G', 'U', 'W']",['Exalted'],rare,1140.0,13.72,17.12,"['G', 'U', 'W']",,0,1
+50,"Odric, Lunarch Marshal",{3}{W},4.0,Legendary Creature — Human Soldier,"At the beginning of each combat, creatures you control gain first strike until end of turn if a creature you control has first strike. The same is true for flying, deathtouch, double strike, haste, hexproof, indestructible, lifelink, menace, reach, skulk, trample, and vigilance.",['W'],['W'],[],rare,880.0,0.46,,,,3,3
+51,Open the Armory,{1}{W},2.0,Sorcery,"Search your library for an Aura or Equipment card, reveal it, and put it into your hand. Then shuffle your library.",['W'],['W'],[],uncommon,515.0,2.43,5.72,,,,
+52,Orzhov Guildgate,,0.0,Land — Gate,"Orzhov Guildgate enters the battlefield tapped.
+{T}: Add {W} or {B}.",[],"['B', 'W']",[],common,356.0,0.15,,"['B', 'W']",,,
+53,Orzhov Signet,{2},2.0,Artifact,"{1}, {T}: Add {W}{B}.",[],"['B', 'W']",[],uncommon,80.0,0.46,,"['B', 'W']",,,
+54,Plains,,0.0,Basic Land — Plains,({T}: Add {W}.),[],['W'],[],common,,,,['W'],,,
+55,Return to Dust,{2}{W}{W},4.0,Instant,"Exile target artifact or enchantment. If you cast this spell during your main phase, you may exile up to one other target artifact or enchantment.",['W'],['W'],[],uncommon,128.0,2.25,,,,,
+56,Scoured Barrens,,0.0,Land,"Scoured Barrens enters the battlefield tapped.
+When Scoured Barrens enters the battlefield, you gain 1 life.
+{T}: Add {W} or {B}.",[],"['B', 'W']",[],common,267.0,0.09,0.15,"['B', 'W']",,,
+57,Sejiri Refuge,,0.0,Land,"Sejiri Refuge enters the battlefield tapped.
+When Sejiri Refuge enters the battlefield, you gain 1 life.
+{T}: Add {W} or {U}.",[],"['U', 'W']",[],uncommon,1013.0,0.47,,"['U', 'W']",,,
+58,Selesnya Guildgate,,0.0,Land — Gate,"Selesnya Guildgate enters the battlefield tapped.
+{T}: Add {G} or {W}.",[],"['G', 'W']",[],common,422.0,0.06,0.56,"['G', 'W']",,,
+59,Shield of the Oversoul,{2}{G/W},3.0,Enchantment — Aura,"Enchant creature
+As long as enchanted creature is green, it gets +1/+1 and has indestructible. (Damage and effects that say ""destroy"" don't destroy it. If its toughness is 0 or less, it's still put into its owner's graveyard.)
+As long as enchanted creature is white, it gets +1/+1 and has flying.","['G', 'W']","['G', 'W']",['Enchant'],common,2092.0,2.19,11.23,,,,
+60,Shielding Plax,{2}{G/U},3.0,Enchantment — Aura,"({G/U} can be paid with either {G} or {U}.)
+Enchant creature
+When Shielding Plax enters the battlefield, draw a card.
+Enchanted creature can't be the target of spells or abilities your opponents control.","['G', 'U']","['G', 'U']",['Enchant'],common,6318.0,0.10,0.22,,,,
+61,Sigarda's Aid,{W},1.0,Enchantment,"You may cast Aura and Equipment spells as though they had flash.
+Whenever an Equipment enters the battlefield under your control, you may attach it to target creature you control.",['W'],['W'],[],rare,860.0,5.88,7.48,,,,
+62,"Sigarda, Host of Herons",{2}{G}{W}{W},5.0,Legendary Creature — Angel,"Flying, hexproof
+Spells and abilities your opponents control can't cause you to sacrifice permanents.","['G', 'W']","['G', 'W']","['Flying', 'Hexproof']",mythic,1324.0,10.61,15.00,,,5,5
+63,Silent Arbiter,{4},4.0,Artifact Creature — Construct,"No more than one creature can attack each combat.
+No more than one creature can block each combat.",[],[],[],rare,1234.0,0.49,,,,1,5
+64,Simic Guildgate,,0.0,Land — Gate,"Simic Guildgate enters the battlefield tapped.
+{T}: Add {G} or {U}.",[],"['G', 'U']",[],common,325.0,0.14,,"['G', 'U']",,,
+65,Simic Signet,{2},2.0,Artifact,"{1}, {T}: Add {G}{U}.",[],"['G', 'U']",[],common,124.0,0.50,,"['G', 'U']",,,
+66,Single Combat,{3}{W}{W},5.0,Sorcery,"Each player chooses a creature or planeswalker they control, then sacrifices the rest. Players can't cast creature or planeswalker spells until the end of your next turn.",['W'],['W'],[],rare,1994.0,0.23,0.59,,,,
+67,Sol Ring,{1},1.0,Artifact,{T}: Add {C}{C}.,[],[],[],uncommon,1.0,2.84,,['C'],,,
+68,Sovereigns of Lost Alara,{4}{W}{U},6.0,Creature — Spirit,"Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)
+Whenever a creature you control attacks alone, you may search your library for an Aura card that could enchant that creature, put it onto the battlefield attached to that creature, then shuffle your library.","['U', 'W']","['U', 'W']",['Exalted'],rare,3111.0,0.57,1.57,,,4,5
+69,Sphinx's Revelation,{X}{W}{U}{U},3.0,Instant,You gain X life and draw X cards.,"['U', 'W']","['U', 'W']",[],mythic,901.0,2.94,6.61,,,,
+70,Steel of the Godhead,{2}{W/U},3.0,Enchantment — Aura,"Enchant creature
+As long as enchanted creature is white, it gets +1/+1 and has lifelink. (Damage dealt by the creature also causes its controller to gain that much life.)
+As long as enchanted creature is blue, it gets +1/+1 and can't be blocked.","['U', 'W']","['U', 'W']",['Enchant'],common,1319.0,2.00,,,,,
+71,Stoic Angel,{1}{G}{W}{U},4.0,Creature — Angel,"Flying, vigilance
+Players can't untap more than one creature during their untap steps.","['G', 'U', 'W']","['G', 'U', 'W']","['Flying', 'Vigilance']",rare,4882.0,0.47,1.37,,,3,4
+72,Stoneforge Mystic,{1}{W},2.0,Creature — Kor Artificer,"When Stoneforge Mystic enters the battlefield, you may search your library for an Equipment card, reveal it, put it into your hand, then shuffle your library.
+{1}{W}, {T}: You may put an Equipment card from your hand onto the battlefield.",['W'],['W'],[],rare,787.0,19.75,26.50,,,1,2
+73,Stonehewer Giant,{3}{W}{W},5.0,Creature — Giant Warrior,"Vigilance
+{1}{W}, {T}: Search your library for an Equipment card and put it onto the battlefield. Attach it to a creature you control. Then shuffle your library.",['W'],['W'],['Vigilance'],rare,1620.0,1.96,3.02,,,4,4
+74,Sun Titan,{4}{W}{W},6.0,Creature — Giant,"Vigilance
+Whenever Sun Titan enters the battlefield or attacks, you may return target permanent card with converted mana cost 3 or less from your graveyard to the battlefield.",['W'],['W'],['Vigilance'],mythic,88.0,0.92,,,,6,6
+75,Supreme Verdict,{1}{W}{W}{U},4.0,Sorcery,"This spell can't be countered.
+Destroy all creatures.","['U', 'W']","['U', 'W']",[],rare,195.0,6.57,16.01,,,,
+76,Swiftfoot Boots,{2},2.0,Artifact — Equipment,"Equipped creature has hexproof and haste.
+Equip {1}",[],[],['Equip'],uncommon,12.0,3.77,,,,,
+77,Sword of Body and Mind,{3},3.0,Artifact — Equipment,"Equipped creature gets +2/+2 and has protection from green and from blue.
+Whenever equipped creature deals combat damage to a player, you create a 2/2 green Wolf creature token and that player mills ten cards.
+Equip {2}",[],[],"['Equip', 'Mill']",mythic,2253.0,11.17,16.01,,,,
+78,Sword of Truth and Justice,{3},3.0,Artifact — Equipment,"Equipped creature gets +2/+2 and has protection from white and from blue.
+Whenever equipped creature deals combat damage to a player, put a +1/+1 counter on a creature you control, then proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)
+Equip {2}",[],[],"['Proliferate', 'Equip']",mythic,1439.0,21.26,36.77,,,,
+79,Temple of Deceit,,0.0,Land,"Temple of Deceit enters the battlefield tapped.
+When Temple of Deceit enters the battlefield, scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)
+{T}: Add {U} or {B}.",[],"['B', 'U']",['Scry'],rare,226.0,1.34,1.53,"['B', 'U']",,,
+80,Temple of Enlightenment,,0.0,Land,"Temple of Enlightenment enters the battlefield tapped.
+When Temple of Enlightenment enters the battlefield, scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)
+{T}: Add {W} or {U}.",[],"['U', 'W']",['Scry'],rare,327.0,0.73,1.29,"['U', 'W']",,,
+81,Temple of Malady,,0.0,Land,"Temple of Malady enters the battlefield tapped.
+When Temple of Malady enters the battlefield, scry 1.
+{T}: Add {B} or {G}.",[],"['B', 'G']",['Scry'],rare,260.0,0.33,0.31,"['B', 'G']",,,
+82,Temple of Mystery,,0.0,Land,"Temple of Mystery enters the battlefield tapped.
+When Temple of Mystery enters the battlefield, scry 1.
+{T}: Add {G} or {U}.",[],"['G', 'U']",['Scry'],rare,160.0,0.33,0.37,"['G', 'U']",,,
+83,Temple of Plenty,,0.0,Land,"Temple of Plenty enters the battlefield tapped.
+When Temple of Plenty enters the battlefield, scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)
+{T}: Add {G} or {W}.",[],"['G', 'W']",['Scry'],rare,365.0,0.92,1.30,"['G', 'W']",,,
+84,Temple of Silence,,0.0,Land,"Temple of Silence enters the battlefield tapped.
+When Temple of Silence enters the battlefield, scry 1.
+{T}: Add {W} or {B}.",[],"['B', 'W']",['Scry'],rare,213.0,0.38,0.50,"['B', 'W']",,,
+85,Terramorphic Expanse,,0.0,Land,"{T}, Sacrifice Terramorphic Expanse: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library.",[],[],[],common,11.0,3.65,,,,,
+86,The Ozolith,{1},1.0,Legendary Artifact,"Whenever a creature you control leaves the battlefield, if it had counters on it, put those counters on The Ozolith.
+At the beginning of combat on your turn, if The Ozolith has counters on it, you may move all counters from The Ozolith onto target creature.",[],[],[],rare,2114.0,5.20,5.75,,,,
+87,Thornwood Falls,,0.0,Land,"Thornwood Falls enters the battlefield tapped.
+When Thornwood Falls enters the battlefield, you gain 1 life.
+{T}: Add {G} or {U}.",[],"['G', 'U']",[],common,284.0,0.07,0.18,"['G', 'U']",,,
+88,Time Wipe,{2}{W}{W}{U},5.0,Sorcery,"Return a creature you control to its owner's hand, then destroy all creatures.","['U', 'W']","['U', 'W']",[],rare,625.0,0.26,1.06,,,,
+89,Trailblazer's Boots,{2},2.0,Artifact — Equipment,"Equipped creature has nonbasic landwalk. (It can't be blocked as long as defending player controls a nonbasic land.)
+Equip {2}",[],[],['Equip'],uncommon,1305.0,1.32,5.25,,,,
+90,Tranquil Cove,,0.0,Land,"Tranquil Cove enters the battlefield tapped.
+When Tranquil Cove enters the battlefield, you gain 1 life.
+{T}: Add {W} or {U}.",[],"['U', 'W']",[],common,347.0,0.07,0.15,"['U', 'W']",,,
+91,Wall of Denial,{1}{W}{U},3.0,Creature — Wall,"Defender, flying
+Shroud (This creature can't be the target of spells or abilities.)","['U', 'W']","['U', 'W']","['Flying', 'Shroud', 'Defender']",uncommon,2036.0,1.41,2.55,,,0,8
+92,Wargate,{X}{G}{W}{U},3.0,Sorcery,"Search your library for a permanent card with converted mana cost X or less, put it onto the battlefield, then shuffle your library.","['G', 'U', 'W']","['G', 'U', 'W']",[],rare,2192.0,3.00,13.90,,,,
+93,Whispersilk Cloak,{3},3.0,Artifact — Equipment,"Equipped creature can't be blocked and has shroud. (It can't be the target of spells or abilities.)
+Equip {2}",[],[],['Equip'],uncommon,142.0,1.56,,,,,
