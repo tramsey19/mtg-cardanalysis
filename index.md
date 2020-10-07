@@ -167,7 +167,7 @@ atraxa = []
 commanderPower(atraxa,'Decklists/atraxa-praetors-voice/',
     'atraxa-praetors-voice.csv')
 ```
-![]({{https://github.com/tramsey19/mtg-cardanalysis/blob/master}}/assets/test.png)
+![Test](https://github.com/tramsey19/mtg-cardanalysis/blob/master/assets/test.png)
 ```python
 breya = []
 commanderPower(breya, 'Decklists/breya-etherium-shaper/',
