@@ -1,5 +1,3 @@
-# Magic: The Gathering Card Analysis
-
 Magic: The Gathering (Magic) is an incredibly complex card game.  Commander is one of the most popular formats in Magic.  One of the issues Commander currently faces is identifying the power level of your deck.  Commander is typically played with 4 players, each piloting their own deck.  If one player has an incredibly powerful deck while the others are playing more casual decks that player has a huge advantage.  Identifying the power level of your deck isn't as easy as just looking at the cards.  Here, I've created a model to predict the power level of Magic cards and subsequent Commander decks.
 
 The first step is to create a csv file of a few commanders you'd like to analyze.  I've uploaded an example [here](https://github.com/tramsey19/mtg-cardanalysis/blob/master/commanders.csv) but feel free to add/remove any you'd like to see.
@@ -27,7 +25,8 @@ for index,rows in df.iterrows():
     
     with open(path+rows[0]+'.csv','wb') as file:
         for a in soup.find_all('a', href=True):
-            file.write(a['href'].replace('\\"/deckpreview/','').replace('\\"','\r\n').encode('utf-8'))
+            file.write(a['href'].replace('\\"/deckpreview/','').replace('\\"','\r\n')\
+                .encode('utf-8'))
 
 # Base URLs for scraping
 edhrec = 'https://edhrec.com/api/deckpreview/'
@@ -82,3 +81,5 @@ for subdir,dirs,files in os.walk('Decklists\\'):
             savename = commander +'-'+ rows[0]
             df.to_csv(savepath+savename+'.csv')
 ```
+
+After collecting the data, we need to create an abilities file.  I've created one [here](https://github.com/tramsey19/mtg-cardanalysis/blob/master/abilities).  Feel free to modify to your liking.  This file is a comma separated file of oracle text as it would appear on a card and the corresponding power level for that text.  The power rankings assigned were assigned based off my own knowledge of the game and the meta I play in.  They are highly subjective.  
