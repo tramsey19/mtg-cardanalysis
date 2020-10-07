@@ -1,5 +1,5 @@
 # mtg-cardanalysis
-Analyze oracle text of Magic: The Gathering cards and create a model to predict power level
+Analyzing Magic: The Gathering cards to predict power level
 
 DATA COLLECTION:
     This file reads in a list of commanders from the "commanders.csv" file.  The commander names need to be in the format expected by edhrec.  For example:  sram-senior-edificer
