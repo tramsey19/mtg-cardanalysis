@@ -95,7 +95,8 @@ import os
 # They were created using a combination of ngrams as well as my own 
 # personal knowledge of the game.  These should be modified as you see fit.
 dfabilities = pd.read_csv('abilities',header=None,names=['ability','rank'])
-typerank = {'Enchantment':9,'Artifact':8,'Planeswalker':7,'Creature':5,'Instant':7,'Sorcery':1,'Land':10}
+typerank = {'Enchantment':9,'Artifact':8,'Planeswalker':7,'Creature':5,
+    'Instant':7,'Sorcery':1,'Land':10}
 
 # Create a function for reusability
 def commanderPower(powerList, DecklistDir, skipFile):
@@ -108,13 +109,15 @@ def commanderPower(powerList, DecklistDir, skipFile):
                 ability_sum = 0
                 for abilindex,abilrows in dfabilities.iterrows():
                     try:
-                        if dfrows['oracle_text'].lower().find(abilrows['ability'].lower()) > -1:
+                        if dfrows['oracle_text'].lower().\
+                            find(abilrows['ability'].lower()) > -1:
                             ability_sum += abilrows['rank']
                     except:
                         continue
                 deck.at[dfindex,'ability_score'] = ability_sum
 
-            dfclean = deck[['cmc','type_line','loyalty','power','toughness','ability_score']].copy()
+            dfclean = deck[['cmc','type_line','loyalty','power',
+                'toughness','ability_score']].copy()
             for index,rows in dfclean.iterrows():
                 typeline = rows['type_line']
                 typewords = typeline.split()
@@ -142,28 +145,36 @@ def commanderPower(powerList, DecklistDir, skipFile):
             dfclean['loyalty'] = dfclean['loyalty'].astype(int)
 
             # Normalize values by dividing by max
-            dfclean['ability_score'] = dfclean['ability_score']/dfclean.apply(max)['ability_score']
-            dfclean['type_line'] = dfclean['type_line']/dfclean.apply(max)['type_line']
-            dfclean['loyalty'] = dfclean['loyalty']/dfclean.apply(max)['loyalty']
+            dfclean['ability_score'] = \
+                dfclean['ability_score']/dfclean.apply(max)['ability_score']
+            dfclean['type_line'] = \
+                dfclean['type_line']/dfclean.apply(max)['type_line']
+            dfclean['loyalty'] = \
+                dfclean['loyalty']/dfclean.apply(max)['loyalty']
             dfclean['power'] = dfclean['power']/dfclean.apply(max)['power']
-            dfclean['toughness'] = dfclean['toughness']/dfclean.apply(max)['toughness']
+            dfclean['toughness'] = \
+                dfclean['toughness']/dfclean.apply(max)['toughness']
             dfclean['cmc'] = 1/(dfclean['cmc']+1)
             dfclean=dfclean.fillna(0)
 
-            dfclean['card_power']=dfclean.sum(axis=1)/dfclean.astype(bool).sum(axis=1)
+            dfclean['card_power']=dfclean.sum(axis=1)/dfclean.\
+                astype(bool).sum(axis=1)
 
             powerList.append(dfclean['card_power'].sum())
 
 
 atraxa = []
-commanderPower(atraxa,'Decklists/atraxa-praetors-voice/','atraxa-praetors-voice.csv')
+commanderPower(atraxa,'Decklists/atraxa-praetors-voice/',
+    'atraxa-praetors-voice.csv')
 ```
-![](https://github.com/tramsey19/mtg-cardanalysis/assets/test.png)
+![](https://github.com/tramsey19/mtg-cardanalysis/blob/master/assets/test.png)
 ```python
 breya = []
-commanderPower(breya, 'Decklists/breya-etherium-shaper/','breya-etherium-shaper.csv')
+commanderPower(breya, 'Decklists/breya-etherium-shaper/',
+    'breya-etherium-shaper.csv')
 
 sram = [] 
-commanderPower(sram, 'Decklists/sram-senior-edificer/','sram-senior-edificer.csv')
+commanderPower(sram, 'Decklists/sram-senior-edificer/',
+    'sram-senior-edificer.csv')
 
 ```
