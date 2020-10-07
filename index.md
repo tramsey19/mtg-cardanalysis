@@ -1,6 +1,6 @@
 Magic: The Gathering (Magic) is an incredibly complex card game.  Commander is one of the most popular formats in Magic.  One of the issues Commander currently faces is identifying the power level of your deck.  Commander is typically played with 4 players, each piloting their own deck.  If one player has an incredibly powerful deck while the others are playing more casual decks that player has a huge advantage.  Identifying the power level of your deck isn't as easy as just looking at the cards.  Here, I've created a model to predict the power level of Magic cards and subsequent Commander decks.
 
-The first step is to create a csv file of a few commanders you'd like to analyze.  I've uploaded an example [here](https://github.com/tramsey19/mtg-cardanalysis/blob/master/commanders.csv) but feel free to add/remove any you'd like to see.
+The first step is to create a csv file of a few commanders you'd like to analyze.  I've uploaded an example [here](https://github.com/tramsey19/mtg-cardanalysis/blob/master/commanders.csv) but feel free to add/remove any you'd like to see.  Save the csv file as "commanders.csv" then run the below code in the same directory.
 
 ### Data Collection
 ```python
@@ -84,4 +84,86 @@ for subdir,dirs,files in os.walk('Decklists\\'):
             df.to_csv(savepath+savename+'.csv')
 ```
 
-After collecting the data, we need to create an abilities file.  I've created one [here](https://github.com/tramsey19/mtg-cardanalysis/blob/master/abilities).  Feel free to modify to your liking.  This file is a comma separated file of oracle text as it would appear on a card and the corresponding power level for that text.  The power rankings assigned were assigned based off my own knowledge of the game and the meta I play in.  They are highly subjective.  
+After collecting the data, we need to create an abilities file.  I've created one [here](https://github.com/tramsey19/mtg-cardanalysis/blob/master/abilities).  Feel free to modify to your liking.  This file is a comma separated file of oracle text as it would appear on a card and the corresponding power level for that text.  The power rankings assigned were assigned based off my own knowledge of the game and the meta I play in.  They are highly subjective.  With the abilities file and the commander decklists, we can now perform analysis on the commander decks.
+
+### Commander Deck Power/Analysis
+```python
+import pandas as pd
+import os
+
+# Both the abilities file and the typerank are highly subjective.  
+# They were created using a combination of ngrams as well as my own 
+# personal knowledge of the game.  These should be modified as you see fit.
+dfabilities = pd.read_csv('abilities',header=None,names=['ability','rank'])
+typerank = {'Enchantment':9,'Artifact':8,'Planeswalker':7,'Creature':5,'Instant':7,'Sorcery':1,'Land':10}
+
+# Create a function for reusability
+def commanderPower(powerList, DecklistDir, skipFile):
+    for subdir,dirs,files in os.walk(DecklistDir):
+        for file in files:
+            if skipFile in file:
+                continue
+            deck = pd.read_csv(os.path.join(subdir,file))
+            for dfindex,dfrows in deck.iterrows():
+                ability_sum = 0
+                for abilindex,abilrows in dfabilities.iterrows():
+                    try:
+                        if dfrows['oracle_text'].lower().find(abilrows['ability'].lower()) > -1:
+                            ability_sum += abilrows['rank']
+                    except:
+                        continue
+                deck.at[dfindex,'ability_score'] = ability_sum
+
+            dfclean = deck[['cmc','type_line','loyalty','power','toughness','ability_score']].copy()
+            for index,rows in dfclean.iterrows():
+                typeline = rows['type_line']
+                typewords = typeline.split()
+                flag = True
+                for a in typewords:
+                    if a in typerank.keys():
+                        dfclean.at[index,'type_line'] = typerank[a]
+                        flag = False
+                if flag:
+                    dfclean.at[index,'type_line'] = 0
+            dfclean=dfclean.fillna(0)
+
+            # Variables like * and X need to be converted to integers
+            for index,rows in dfclean.iterrows():
+                if '*' in str(rows['loyalty']) or rows['loyalty'] == 'X':
+                    dfclean.at[index,'loyalty']=0
+                if '*' in str(rows['power']) or rows['power'] == 'X':
+                    dfclean.at[index,'power']=0
+                if '*' in str(rows['toughness']) or rows['toughness'] == 'X':
+                    dfclean.at[index,'toughness']=0
+
+            # Columns need to be converted to ints
+            dfclean['power'] = dfclean['power'].astype(int)
+            dfclean['toughness'] = dfclean['toughness'].astype(int)
+            dfclean['loyalty'] = dfclean['loyalty'].astype(int)
+
+            # Normalize values by dividing by max
+            dfclean['ability_score'] = dfclean['ability_score']/dfclean.apply(max)['ability_score']
+            dfclean['type_line'] = dfclean['type_line']/dfclean.apply(max)['type_line']
+            dfclean['loyalty'] = dfclean['loyalty']/dfclean.apply(max)['loyalty']
+            dfclean['power'] = dfclean['power']/dfclean.apply(max)['power']
+            dfclean['toughness'] = dfclean['toughness']/dfclean.apply(max)['toughness']
+            dfclean['cmc'] = 1/(dfclean['cmc']+1)
+            dfclean=dfclean.fillna(0)
+
+            dfclean['card_power']=dfclean.sum(axis=1)/dfclean.astype(bool).sum(axis=1)
+
+            powerList.append(dfclean['card_power'].sum())
+
+
+atraxa = []
+commanderPower(atraxa,'Decklists/atraxa-praetors-voice/','atraxa-praetors-voice.csv')
+```
+![](https://github.com/tramsey19/mtg-cardanalysis/assets/test.png)
+```python
+breya = []
+commanderPower(breya, 'Decklists/breya-etherium-shaper/','breya-etherium-shaper.csv')
+
+sram = [] 
+commanderPower(sram, 'Decklists/sram-senior-edificer/','sram-senior-edificer.csv')
+
+```
