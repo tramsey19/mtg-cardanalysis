@@ -15,6 +15,7 @@ import time
 df = pd.read_csv('commanders.csv',header=None)
 
 url = 'https://edhrec-json.s3.amazonaws.com/en/listofdecks/'
+os.mkdir('Decklists\\')
 for index,rows in df.iterrows():
     path = 'Decklists\\' + rows[0] +'\\'
     os.mkdir(path)
@@ -25,15 +26,15 @@ for index,rows in df.iterrows():
     
     with open(path+rows[0]+'.csv','wb') as file:
         for a in soup.find_all('a', href=True):
-            file.write(a['href'].replace('\\"/deckpreview/','').replace('\\"','\r\n')\
-                .encode('utf-8'))
+            file.write(a['href'].replace('\\"/deckpreview/','')\
+                .replace('\\"','\r\n').encode('utf-8'))
 
 # Base URLs for scraping
 edhrec = 'https://edhrec.com/api/deckpreview/'
 scryfall = 'https://api.scryfall.com/cards/collection'
 
-# Using the GUIDs gathered from above, this section scrapes the decklists from EDHREC, 
-# then passes the lists to Scryfall to gather the individual card data.
+# Using the GUIDs gathered from above, this section scrapes the decklists 
+# from EDHREC then passes the lists to Scryfall to gather the card data.
 for subdir,dirs,files in os.walk('Decklists\\'):
     commander = subdir.replace('Decklists\\','')
     savepath = subdir + '\\'
@@ -45,9 +46,10 @@ for subdir,dirs,files in os.walk('Decklists\\'):
             arr2 = []
             headers = {'Content-Type':'application/json'}
             # We are only targeting specific card attributes
-            cols = ['name', 'mana_cost', 'cmc', 'type_line', 'oracle_text', 'colors', 
-                   'color_identity', 'keywords','rarity', 'edhrec_rank', 'prices.usd', 
-                   'prices.usd_foil','produced_mana','loyalty', 'power', 'toughness']
+            cols = ['name', 'mana_cost', 'cmc', 'type_line', 'oracle_text', 
+                   'colors','color_identity', 'keywords','rarity', 'edhrec_rank',
+                   'prices.usd', 'prices.usd_foil','produced_mana','loyalty',
+                   'power', 'toughness']
 
             res = requests.get(url)
 
