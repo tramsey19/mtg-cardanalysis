@@ -207,7 +207,7 @@ With 10 groups instead of 5 we can see most the Zur decks range from 57-64, whic
 
 In general, this shows that we are directionally correct with our power rankings.  Zur is considered a top-tier commander with Breya following close behind.  Sram is a mono-white commander making it one of the least powerful commanders to build around.  Atraxa is used across a wide variety of decks, but none of which are as powerful as Breya or Zur.  It makes sense for her rankings to fall in the middle of the line.
 
-In addition to looking at specific commanders/cards, we can also look at the cards in general and create a deep learning model to analyze the power level of cards.  First, we need to gather the card data which can be found under the "Oracle Cards" section here:  https://scryfall.com/docs/api/bulk-data.
+In addition to looking at specific commanders/cards, we can also look at the cards in general and create a deep learning model to analyze the power level of cards.  First, we need to gather the card data which can be found under the "Oracle Cards" section here:  [https://scryfall.com/docs/api/bulk-data](https://scryfall.com/docs/api/bulk-data).
 
 ### Card Analysis
 ```python
@@ -389,7 +389,7 @@ print(results)
 This model achieved 99.52% test accuracy.  This means the model can estimate with near perfect accuracy if a card is considered "powerful" or not.  
 
 Here is another method I found and adapted from this website:
-#### https://machinelearningmastery.com/use-word-embedding-layers-deep-learning-keras/
+#### [https://machinelearningmastery.com/use-word-embedding-layers-deep-learning-keras/](https://machinelearningmastery.com/use-word-embedding-layers-deep-learning-keras/)
 ```python
 docs = df['oracle_text'].copy()
 
