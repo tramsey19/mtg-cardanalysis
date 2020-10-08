@@ -166,9 +166,7 @@ def commanderPower(powerList, DecklistDir, skipFile):
 atraxa = []
 commanderPower(atraxa,'Decklists/atraxa-praetors-voice/',
     'atraxa-praetors-voice.csv')
-```
-![](https://raw.githubusercontent.com/tramsey19/mtg-cardanalysis/master/assets/test.png)
-```python
+
 breya = []
 commanderPower(breya, 'Decklists/breya-etherium-shaper/',
     'breya-etherium-shaper.csv')
@@ -177,4 +175,37 @@ sram = []
 commanderPower(sram, 'Decklists/sram-senior-edificer/',
     'sram-senior-edificer.csv')
 
+zur = [] 
+commanderPower(sram, 'Decklists/zur-the-enchanter/',
+    'zur-the-enchanter.csv')
 ```
+The last few lines create lists containing deck powers.  With these we can create some bar charts to see the data a little better and see how these commanders rank up against each other.
+
+![](https://raw.githubusercontent.com/tramsey19/mtg-cardanalysis/master/assets/commanders.png)
+
+This graph shows that Sram appears to be the weakest while Zur and Breya appear stronger, but it is difficult to tell.  The below graphs break out the decks into individual graphs.  These graphs are separated into 5 groups with static ranges from the min to max for each specific commander.  Pay close attention to the X-axis.
+
+![](https://raw.githubusercontent.com/tramsey19/mtg-cardanalysis/master/assets/atraxa.png)
+
+Atraxa, for example, has the majority of decks with a power level between 48-55.
+
+![](https://raw.githubusercontent.com/tramsey19/mtg-cardanalysis/master/assets/breya.png)
+
+Breya is skewed a little to the right, with most of her decks ranging from 50-56.  It appears Breya might be a little stronger than Atraxa.
+
+![](https://raw.githubusercontent.com/tramsey19/mtg-cardanalysis/master/assets/sram.png)
+
+Sram is skewed left with most decks ranging from 35-41.  Sram appears to be the least powerful commander.
+
+![](https://raw.githubusercontent.com/tramsey19/mtg-cardanalysis/master/assets/zur.png)
+
+Zur has an interesting spread, most decks are between 45-57.  It looks like a bit wider spread might help clear things up.
+
+![](https://raw.githubusercontent.com/tramsey19/mtg-cardanalysis/master/assets/zur10.png)
+
+With 10 groups instead of 5 we can see most the Zur decks range from 57-64, which would make this the most powerful commander.
+
+In general, this shows that we are directionally correct with our power rankings.  Zur is considered a top-tier commander with Breya following close behind.  Sram is a mono-white commander making it one of the least powerful commanders to build around.  Atraxa is used across a wide variety of decks, but none of which are as powerful as Breya or Zur.  It makes sense for her rankings to fall in the middle of the line.
+
+
+
