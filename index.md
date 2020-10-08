@@ -207,5 +207,236 @@ With 10 groups instead of 5 we can see most the Zur decks range from 57-64, whic
 
 In general, this shows that we are directionally correct with our power rankings.  Zur is considered a top-tier commander with Breya following close behind.  Sram is a mono-white commander making it one of the least powerful commanders to build around.  Atraxa is used across a wide variety of decks, but none of which are as powerful as Breya or Zur.  It makes sense for her rankings to fall in the middle of the line.
 
+In addition to looking at specific commanders/cards, we can also look at the cards in general and create a deep learning model to analyze the power level of cards.  First, we need to gather the card data which can be found under the "Oracle Cards" section here:  https://scryfall.com/docs/api/bulk-data.
+
+### Card Analysis
+```python
+from numpy import array
+from keras.preprocessing.text import one_hot
+from keras.preprocessing.sequence import pad_sequences
+from keras.models import Sequential
+from keras.layers import Dense, Flatten
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from keras import models, layers
+from keras.callbacks import EarlyStopping
+from keras import backend
+from keras.layers.normalization import BatchNormalization
+from keras import regularizers
+import matplotlib.pyplot as plt
+from keras.layers.embeddings import Embedding
+
+# Rename the "oracle-cards" file to "rulings.json"
+df = pd.read_json('rulings.json')
+dfabilities = pd.read_csv('abilities',header=None,names=['ability','rank'])
+
+# Create ability score column
+df['ability_score'] = 0
+for dfindex,dfrows in df.iterrows():
+    ability_sum = 0
+    for abilindex,abilrows in dfabilities.iterrows():
+        try:
+            if dfrows['oracle_text'].find(abilrows['ability']) > -1:
+                ability_sum += abilrows['rank']
+        except:
+            continue
+    df.at[dfindex,'ability_score'] = ability_sum
+ 
+# Create an ability index
+ability_index = {}
+count = 0
+for index,rows in df.iterrows():
+    try:
+        words = rows['oracle_text'].lower().replace(rows['name'].lower(),'this object').split()
+        for a in words:
+            a = ''.join(b for b in a if b not in ['.','(',')'])
+            if a not in ability_index:
+                count += 1
+                ability_index[a] = count
+            else:
+                continue
+    except:
+        continue
+        
+# Create train/test data
+train_data = []
+train_labels = []
+test_data = []
+test_labels = []
+df = df.fillna(0)
+for index,rows in df.iterrows():
+    try:
+        words = rows['oracle_text'].lower().replace(rows['name'].lower(),'this object').split()
+        indices = []
+        for a in words:
+            a = ''.join(b for b in a if b not in ['.','(',')'])
+            indices.append(ability_index[a])
+        # Split train/test into 80/20
+        if len(train_data) <= len(df)*.8:
+            train_data.append(indices)
+            train_labels.append(rows['ability_score'])
+        else:
+            test_data.append(indices)
+            test_labels.append(rows['ability_score'])
+    except:
+        continue        
+
+# Convert data to NumPy arrays
+np_train_data = np.array(train_data)
+np_train_labels = np.array(train_labels)
+np_test_data = np.array(test_data)
+np_test_labels = np.array(test_labels)
+
+# Convert labels to floats
+np_train_labels = np_train_labels.astype(np.float)
+np_test_labels = np_test_labels.astype(np.float)
+
+# Normalize the labels between 0 and 1
+np_train_labels = np_train_labels/np_train_labels.max()
+np_test_labels = np_test_labels/np_test_labels.max()
+
+# Set each label to 0 or 1
+count = 0
+for a in np_train_labels:
+    # Adjust this value higher/lower to be more/less strict on what is considered good/bad
+    if a < .5:
+        np_train_labels[count] = 0
+    else:
+        np_train_labels[count] = 1
+    count += 1
+count = 0
+for a in np_test_labels:
+    # Adjust this value higher/lower to be more/less strict on what is considered good/bad
+    if a < .5:
+        np_test_labels[count] = 0
+    else:
+        np_test_labels[count] = 1
+    count += 1
+    
+# This function will create a tensor that is 17537 by 5402. 17537 is the number of samples
+# and 5402 is the number of unique words. The tensor will have all zeros except for ones where that word is in the ability
+def vectorize_sequences(sequences, dimension=5402):
+    results = np.zeros((len(sequences), dimension))
+    for i, sequence in enumerate(sequences):
+        results[i, sequence] = 1.
+    return results
+    
+# Apply the vectorize function to the train_data and test_data
+x_train = vectorize_sequences(np_train_data)
+x_test = vectorize_sequences(np_test_data)
 
 
+# View the train shape, values, and dimensions
+print(x_train.shape)
+print(x_train[0])
+print(x_train.ndim)
+
+y_train = np.asarray(np_train_labels).astype('float32')
+y_test = np.asarray(np_test_labels).astype('float32')
+x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size=0.25, random_state=42)
+
+np.random.seed(42)
+backend.clear_session()
+model = models.Sequential()
+model.add(layers.Dense(16, activation = 'relu', input_shape = (5402,)))
+model.add(layers.Dropout(0.2))
+model.add(BatchNormalization())
+model.add(layers.Dense(16, activation = 'relu'))
+model.add(layers.Dropout(0.5))
+model.add(BatchNormalization())
+model.add(layers.Dense(1, activation = 'sigmoid'))
+model.compile(optimizer='adam',
+             loss = 'binary_crossentropy',
+             metrics = ['accuracy'])
+
+history = model.fit(x_train,
+                   y_train,
+                   epochs = 20,
+                   batch_size = 500,
+                   validation_data = (x_val, y_val),
+                   callbacks=[EarlyStopping(monitor='val_acc', patience=3, restore_best_weights = True)])
+
+history_dict = history.history
+loss_values = history_dict['loss']
+val_loss_values = history_dict['val_loss']
+acc_values = history_dict['acc']
+val_acc_values = history_dict['val_acc']
+epochs = range(1, len(history_dict['acc']) + 1)
+
+plt.plot(epochs, loss_values, 'bo', label = 'Training loss')
+plt.plot(epochs, val_loss_values, 'b', label = 'Validation loss')
+plt.title('Training and validation loss')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+plt.show()
+
+plt.plot(epochs, acc_values, 'bo', label = 'Training accuracy')
+plt.plot(epochs, val_acc_values, 'b', label = 'Validation accuracy')
+plt.title('Training and validation accuracy')
+plt.xlabel('Epochs')
+plt.ylabel('Accuracy')
+plt.legend()
+plt.show()
+
+results = model.evaluate(x_test, y_test)
+print(model.metrics_names)
+print(results)
+```
+![](https://raw.githubusercontent.com/tramsey19/mtg-cardanalysis/master/assets/deepmodel.png)
+
+This model achieved 99.52% test accuracy.  This means the model can estimate with near perfect accuracy if a card is considered "powerful" or not.  
+
+Here is another method I found and adapted from this website:
+#### https://machinelearningmastery.com/use-word-embedding-layers-deep-learning-keras/
+```python
+docs = df['oracle_text'].copy()
+
+# Convert all non-str values into empty strings
+count = 0
+for a in docs:
+    try:
+        a.lower()
+    except:
+        docs[count] = ''
+    finally:
+        count += 1
+        
+# Define labels
+labels = df['ability_score'].copy()
+
+# Normalize the labels between 0 and 1
+labels = labels/labels.max()
+
+# Set each label to 0 or 1
+count = 0
+for a in labels:
+    # Adjust this value higher/lower to be more/less strict on what is considered good/bad
+    if a < .5:
+        labels[count] = 0
+    else:
+        labels[count] = 1
+    count += 1      
+    
+# Vocab size should be greater than number of unique words to prevent collisions
+vocab_size = 5000
+encoded_docs = [one_hot(d, vocab_size) for d in docs]
+# Max Length is maximum number of words allowed in an ability
+max_length = 20
+padded_docs = pad_sequences(encoded_docs, maxlen=max_length, padding='post')
+# define the model
+model = Sequential()
+# 16 is the dimensions (features/attributes) for a specific document
+model.add(Embedding(vocab_size, 16, input_length=max_length))
+model.add(Flatten())
+model.add(Dense(1, activation='sigmoid'))
+# compile the model
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+# fit the model
+model.fit(padded_docs, labels, epochs=50, verbose=0)
+# evaluate the model
+loss, accuracy = model.evaluate(padded_docs, labels, verbose=0)
+print('Accuracy: %f' % (accuracy*100))    
+```        
+This model achieved 99.98% accuracy when I ran it.  While I prefer the first model over the second, its a bit like using a sledgehammer on a nail.  The second model is much more efficient and provides a greater accuracy, so I would probably use it going forward.
